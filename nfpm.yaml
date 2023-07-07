@@ -1,0 +1,29 @@
+# nfpm example configuration file
+#
+# check https://nfpm.goreleaser.com/configuration for detailed usage
+#
+name: "tarantool-queue"
+arch: "noarch"
+platform: "linux"
+version: "1.3.0"
+section: "default"
+priority: "extra"
+epoch: 1
+release: 2
+rpm:
+  group: Applications/Databases
+  packager: Igor Kozlov <igor.kozlov@corp.mail.ru>
+maintainer: "John Doe <john@example.com>"
+description: |
+  A collection of persistent queue implementations for Tarantool.
+
+vendor: "Tarantool"
+homepage: "https://github.com/tarantool/queue"
+license: "BSD"
+# changelog: "changelog.yaml"
+contents:
+- src: ./queue/*.lua
+  dst: /usr/share/tarantool/queue/
+- src: ./queue/abstract/
+  dst: /usr/share/tarantool/queue/abstract/
+  type: tree
